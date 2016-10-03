@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .angular-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div ngshow="visibleNgShow">
+        content ng show
+    </div>
+    <button ngclick="visibleNgShowClickHandler">Show/Hide</button>
+
+    <div ngif="visibleNgIf">
+        <div nghide="visibleNgHideInner">content ng hide inner</div>
+        <button ngclick="visibleNgHideInnerClickHandler">Show/Hide</button>
+
+        <div ngif="visibleNgIfInner">content ng if inner </div>
+        <button ngclick="visibleNgIfInnerClickHandler">Show/Hide</button>
+    </div>
+    <button ngclick="visibleNgIfClickHandler">Show/Hide</button></br>
+</body>
+
+<script src="angular/compile.js"></script>
+<script src="angular/scope.js"></script>
+<script src="angular/angular.js"></script>
+<script src="angular/directives/ngBind.js"></script>
+<script src="angular/directives/ngClick.js"></script>
+<script src="angular/directives/ngIf.js"></script>
+<script src="angular/directives/ngShow.js"></script>
+<script src="angular/directives/ngHide.js"></script>
+
+<script>
+    window.onload = function() {
+        angular.init();
+
+        angular.registerDirective("ngif", ngIf);
+        angular.registerDirective("ngbind", ngBind);
+        angular.registerDirective("ngclick", ngClick);
+        angular.registerDirective("ngshow", ngShow);
+        angular.registerDirective("nghide", ngHide);
+
+        function initScope($scope) {
+            $scope.visibleNgShow = true;
+            $scope.visibleNgIf = true;
+            $scope.visibleNgHideInner = false;
+            $scope.visibleNgIfInner = true;
+
+            $scope.visibleNgShowClickHandler = function () {
+                $scope.visibleNgShow = !$scope.visibleNgShow;
+            };
+            $scope.visibleNgIfClickHandler = function () {
+                $scope.visibleNgIf = !$scope.visibleNgIf;
+            };
+            $scope.visibleNgHideInnerClickHandler = function () {
+                $scope.visibleNgHideInner = !$scope.visibleNgHideInner;
+            };
+            $scope.visibleNgIfInnerClickHandler = function () {
+                $scope.visibleNgIfInner = !$scope.visibleNgIfInner;
+            };
+        }
+
+        angular.bootstrap(initScope, document.documentElement);
+    }
+</script>
+</html>
