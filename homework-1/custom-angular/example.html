@@ -8,21 +8,24 @@
         }
     </style>
 </head>
-<body>
+<br>
 
     <div ngshow="visibleNgShow">
         content ng show
     </div>
-    <button ngclick="visibleNgShowClickHandler">Show/Hide</button>
+    <button ngclick="visibleNgShowClickHandler">Show/Hide</button><br/><br/>
 
     <div ngif="visibleNgIf">
         <div nghide="visibleNgHideInner">content ng hide inner</div>
-        <button ngclick="visibleNgHideInnerClickHandler">Show/Hide</button>
+        <button ngclick="visibleNgHideInnerClickHandler">Show/Hide</button><br/>
 
         <div ngif="visibleNgIfInner">content ng if inner </div>
-        <button ngclick="visibleNgIfInnerClickHandler">Show/Hide</button>
+        <button ngclick="visibleNgIfInnerClickHandler">Show/Hide</button><br/>
     </div>
-    <button ngclick="visibleNgIfClickHandler">Show/Hide</button></br>
+    <button ngclick="visibleNgIfClickHandler">Show/Hide</button><br/><br/>
+
+    <div ngbind="bindValue"></div>
+    <button ngclick="changeBindValueClickHandler">Change bind value</button>
 </body>
 
 <script src="angular/compile.js"></script>
@@ -49,6 +52,7 @@
             $scope.visibleNgIf = true;
             $scope.visibleNgHideInner = false;
             $scope.visibleNgIfInner = true;
+            $scope.bindValue = "initial bind value";
 
             $scope.visibleNgShowClickHandler = function () {
                 $scope.visibleNgShow = !$scope.visibleNgShow;
@@ -62,6 +66,9 @@
             $scope.visibleNgIfInnerClickHandler = function () {
                 $scope.visibleNgIfInner = !$scope.visibleNgIfInner;
             };
+            $scope.changeBindValueClickHandler = function() {
+                $scope.bindValue = "changed bind value";
+            }
         }
 
         angular.bootstrap(initScope, document.documentElement);
