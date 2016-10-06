@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="mailApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Почта</title>
+</head>
+<body ng-controller="MailController">
+    <mail-table items="mails" on-show-detailed="onShowDetailed(selectedItem)" ng-if="!showDetailed"></mail-table>
+
+    <mail-detailed item="selectedMail" ng-if="showDetailed" on-go-back="onGoBack()" />
+
+    <script src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
+    <script>
+        angular.module('mailApp', []);
+
+        angular.module('mailApp')
+                .controller('MailController', ['$scope', function($scope) {
+                    $scope.showDetailed = false;
+
+                    $scope.onShowDetailed = function(selectedItem) {
+                        $scope.selectedMail = selectedItem;
+                        $scope.showDetailed = true;
+                    };
+
+                    $scope.onGoBack = function() {
+                        $scope.showDetailed = false;
+                    };
+
+                    $scope.mails = [
+                        {
+                            from: "test1@mail.ru",
+                            subject: "subject1",
+                            body: `body test message mail1 body test message mail1 body test message mail1 body test message mail1
+                                body test message mail1 body test message mail1 body test message mail1 body test message mail1 body test message mail1
+                                body test message mail1 body test message mail1 body test message mail1 body test message mail1 body test message mail1
+                                body test message mail1 body test message mail1 body test message mail1 body test message mail1 body test message mail1`
+                        },
+                        {
+                            from: "test2@mail.ru",
+                            subject: "subject2",
+                            body: `body test message mail2 body test message mail2 body test message mail2 body test message mail2
+                                body test message mail2 body test message mail2 body test message mail2 body test message mail2 body test message mail2
+                                body test message mail2 body test message mail2 body test message mail2 body test message mail2 body test message mail2
+                                body test message mail2 body test message mail2 body test message mail2 body test message mail2 body test message mail2`
+                        },
+                        {
+                            from: "test3@mail.ru",
+                            subject: "subject3",
+                            body: `body test message mail3 body test message mail3 body test message mail3 body test message mail3 body
+                                body test message mail3 body test message mail3 body test message mail3 body test message mail3 body test message mail3
+                                body test message mail3 body test message mail3 body test message mail3 body test message mail3 body test message mail3
+                                body test message mail3 body test message mail3 body test message mail3 body test message mail3 body test message mail3`
+                        }
+                    ];
+                }]);
+    </script>
+
+    <script src="components/mail-table.component.js"></script>
+    <script src="components/mail-table-item.component.js"></script>
+    <script src="components/mail-detailed.component.js"></script>
+</body>
+</html>
