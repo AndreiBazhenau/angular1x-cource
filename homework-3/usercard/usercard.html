@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="usercardApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Карточки пользователей</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <usercard></usercard>
+        </div>
+    </div>
+</div>
+<script src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.js"></script>
+<script>
+    angular.module('usercardApp', ['restangular'])
+            .config(function(RestangularProvider) {
+                RestangularProvider.setBaseUrl('http://test-api.javascript.ru/v1/abazhenau');
+                RestangularProvider.setRestangularFields({ id: "_id" });
+            })
+            .component('usercard',  {
+                template: `
+                    <div class="panel panel-info"  ng-repeat = "user in $ctrl.users">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{user.fullName}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class=" col-md-9 col-lg-9 ">
+                                    <table class="table table-user-information">
+                                        <tbody>
+                                            <tr><td>Дата рождения</td><td>{{user.birthdate | date : shortDate}}</td></tr>
+                                            <tr><td>Пол</td><td>{{user.gender}}</td></tr>
+                                            <tr><td>Адрес</td><td>{{user.address}}</td></tr>
+                                            <tr><td>Email</td><td><a ng-href="mailto:{{user.email}}">{{user.email}}</a></td>
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-danger" ng-click="$ctrl.delete(user)">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `,
+                controller: ['Restangular', function(Restangular){
+                    var ctx = this;
+                    Restangular.all('users').getList().then(function(users) {
+                        ctx.users = users;
+                    });
+
+                    this.delete = function(user) {
+                        user.remove().then(function() {
+                            ctx.users = ctx.users.filter(function(el) {
+                                return el._id !== user._id;
+                            });
+                        });
+                    }
+                }]
+            });
+</script>
+</body>
+</html>

@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Почта</title>
-</head>
-<body ng-controller="MailController">
-    <mail-table items="mails" on-show-detailed="onShowDetailed(selectedItem)" ng-if="!showDetailed"></mail-table>
+<body>
+<mail-box>
+</mail-box>
 
-    <mail-detailed item="selectedMail" ng-if="showDetailed" on-go-back="onGoBack()" />
-
-    <script src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
     <script>
         angular.module('mailApp', []);
 
         angular.module('mailApp')
-                .controller('MailController', ['$scope', function($scope) {
-                    $scope.showDetailed = false;
+            .component('mailBox', {
+                template: `
+                      <mail-table items="$ctrl.mails" on-show-detailed="$ctrl.onShowDetailed(selectedItem)" ng-if="!$ctrl.showDetailed"></mail-table>
+                      <mail-detailed item="$ctrl.selectedMail" ng-if="$ctrl.showDetailed" on-go-back="$ctrl.onGoBack()" ></mail-detailed>
+                    `,
+                controller: function() {
+                    this.showDetailed = false;
 
-                    $scope.onShowDetailed = function(selectedItem) {
-                        $scope.selectedMail = selectedItem;
-                        $scope.showDetailed = true;
+                    this.onShowDetailed = function(selectedItem) {
+                        this.selectedMail = selectedItem;
+                        this.showDetailed = true;
                     };
 
-                    $scope.onGoBack = function() {
-                        $scope.showDetailed = false;
+                    this.onGoBack = function() {
+                        this.showDetailed = false;
                     };
 
-                    $scope.mails = [
+                    this.mails = [
                         {
                             from: "test1@mail.ru",
                             subject: "subject1",
@@ -52,7 +55,8 @@
                                 body test message mail3 body test message mail3 body test message mail3 body test message mail3 body test message mail3`
                         }
                     ];
-                }]);
+                }
+            });
     </script>
 
     <script src="components/mail-table.component.js"></script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="mailApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Почта</title>
+<body>
+    <mail-box>
+    </mail-box>
+
+    <script src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.5.8/angular-resource.min.js"></script>
+    <script>
+        angular.module('mailApp', ['ngResource']);
+
+        angular.module('mailApp')
+            .component('mailBox', {
+                template: `
+                      <mail-table items="$ctrl.mails" on-show-detailed="$ctrl.onShowDetailed(selectedItem)"
+                            ng-if="!$ctrl.showDetailed"></mail-table>
+                      <mail-detailed item="$ctrl.selectedMail" ng-if="$ctrl.showDetailed"
+                            on-delete="$ctrl.onDelete(selectedItem)" on-go-back="$ctrl.onGoBack()" ></mail-detailed>
+                    `,
+                controller: ['LetterService', function(LetterService) {
+                    var ctx = this;
+                    this.showDetailed = false;
+
+                    this.onShowDetailed = function(selectedItem) {
+                        this.selectedMail = selectedItem;
+                        this.showDetailed = true;
+                    };
+
+                    this.onGoBack = function() {
+                        this.showDetailed = false;
+                    };
+
+                    this.onDelete = function(selectedItem) {
+                        selectedItem.$delete(function() {
+                            ctx.mails = ctx.mails.filter(function(el) {
+                                return el._id !== selectedItem._id;
+                            });
+                            ctx.showDetailed = false;
+                        });
+                    }
+
+                    this.mails = LetterService.query();
+                }]
+            });
+    </script>
+
+    <script src="component/mail-table.component.js"></script>
+    <script src="component/mail-table-item.component.js"></script>
+    <script src="component/mail-detailed.component.js"></script>
+    <script src="service/letter-service.js"></script>
+</body>
+</html>
