@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .angular-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body customdirective>
+
+    <div ngshow="visibleNgShow">
+        content ng show
+    </div>
+    <button ngclick="visibleNgShowClickHandler">Show/Hide</button><br/><br/>
+
+    <div ngif="visibleNgIf">
+        <div nghide="visibleNgHideInner">content ng hide inner</div>
+        <button ngclick="visibleNgHideInnerClickHandler">Show/Hide</button><br/>
+
+        <div ngif="visibleNgIfInner">content ng if inner </div>
+        <button ngclick="visibleNgIfInnerClickHandler">Show/Hide</button><br/>
+    </div>
+    <button ngclick="visibleNgIfClickHandler">Show/Hide</button><br/><br/>
+
+    <div ngbind="bindValue"></div>
+    <button ngclick="changeBindValueClickHandler">Change bind value</button>
+    <div ngbind="valueFromService"></div>
+</body>
+
+<script src="angular/compile.js"></script>
+<script src="angular/injector.js"></script>
+<script src="angular/scope.js"></script>
+<script src="angular/angular.js"></script>
+<script src="angular/directives/ngBind.js"></script>
+<script src="angular/directives/ngClick.js"></script>
+<script src="angular/directives/ngIf.js"></script>
+<script src="angular/directives/ngShow.js"></script>
+<script src="angular/directives/ngHide.js"></script>
+<script src="custom-directive.js"></script>
+<script src="custom-service.js"></script>
+
+<script>
+    window.onload = function() {
+        angular.init();
+
+        angular.directive("ngif", ngIf);
+        angular.directive("ngbind", ngBind);
+        angular.directive("ngclick", ngClick);
+        angular.directive("ngshow", ngShow);
+        angular.directive("nghide", ngHide);
+        angular.directive("customdirective", customDirective);
+
+        angular.service("customService", customService);
+
+        angular.bootstrap(document.documentElement);
+    }
+</script>
+</html>
