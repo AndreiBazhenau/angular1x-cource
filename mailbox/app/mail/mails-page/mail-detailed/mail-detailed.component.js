@@ -3,7 +3,7 @@ angular.module('mail.module').component('mailDetailed', {
             letterId: '<',
             mailboxId: '<'
         },
-        templateUrl: 'app/mail/mails-page/mail-detailed/mail-detailed.component.html' ,
+        templateUrl: 'mail/mails-page/mail-detailed/mail-detailed.component.html' ,
         controller: ['LetterService', '$state', function(LetterService, $state) {
             var ctx = this;
             LetterService.get({ id : this.letterId}, function(letter) {

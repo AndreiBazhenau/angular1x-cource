@@ -1,0 +1,23 @@
+1. package.json
+2. bower
+3. gulp
+4. auth
+5. interceptors(errors + spinner) + ng-cloack
+6. save email
+7. save contact
+8. e2e protractor
+9. jasmine tests
+10. dialog
+11. validation framework + server side validation integration
+12. es6 + webpack
+13. articles
+14. docs + book
+
+
+1. CORS
+2. resource + Restangular interceptors
+3. resolve vs controller
+4. server-side validation errors
+5. store state - local storage or cookies
+6. ng-messsage
+7. validation framework directives

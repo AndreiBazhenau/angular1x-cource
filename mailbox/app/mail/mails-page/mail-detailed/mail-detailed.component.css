@@ -1,0 +1,18 @@
+.message .header,.body {
+    padding: 1em 2em;
+}
+
+.message .header {
+    background-color: darkgray;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+
+.message .header .line2 {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}

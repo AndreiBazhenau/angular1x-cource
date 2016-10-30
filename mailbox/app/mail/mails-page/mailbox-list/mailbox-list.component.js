@@ -1,5 +1,5 @@
 angular.module('mail.module').component('mailboxList',  {
-    templateUrl: 'app/mail/mails-page/mailbox-list/mailbox-list.component.html',
+    templateUrl: 'mail/mails-page/mailbox-list/mailbox-list.component.html',
     controller: ['MailboxService', '$state', function(MailboxService, $state){
         var ctx = this;
         MailboxService.query(function(mailboxes) {

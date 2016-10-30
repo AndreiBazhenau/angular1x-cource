@@ -1,0 +1,38 @@
+.my-messages .folderlist {
+    flex: 0 0 auto;
+    overflow-y: scroll;
+    max-height: 200px;
+}
+
+.selectlist-mail {
+    margin: 0;
+    padding: 1.5em 0;
+    background-color: #DDD;
+}
+.selectlist-mail a {
+    display: block;
+    color: black;
+    padding: 0.15em 1.5em;
+    text-decoration: none;
+    font-size: small;
+}
+.selectlist-mail .selected {
+    background-color: cornflowerblue;
+}
+.selectlist-mail .selected a {
+    color: white;
+}
+.selectlist-mail i.fa {
+    width: 1.35em;
+}
+
+.selectlist-mail .folder.selected i.fa:before {
+    content: "\f115";
+}
+.selectlist-mail .folder:not(.selected) i.fa:before {
+    content: "\f114";
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+}

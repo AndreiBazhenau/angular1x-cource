@@ -1,3 +1,3 @@
 angular.module('main.module').component('mainLayout',  {
-    templateUrl: 'app/main/main-layout.component.html'
+    templateUrl: 'main/main-layout.component.html'
 });

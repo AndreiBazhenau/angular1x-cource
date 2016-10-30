@@ -1,0 +1,15 @@
+.my-messages {
+    width: 100%;
+    display: flex;
+    max-height: 200px;
+}
+
+.messagelist {
+    flex: 1 0 12em;
+    overflow-y: scroll;
+    max-height: 200px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

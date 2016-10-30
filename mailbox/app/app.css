@@ -1,0 +1,25 @@
+button.btn i + span {
+    margin-left: 0.75em;
+}
+
+.flex-h {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-v {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.flex-h > * {
+    flex: 1 1;
+}
+
+.flex.grow {
+    flex: 1 0 auto;
+}
+
+.flex.nogrow {
+    flex: 0 1 auto;
+}

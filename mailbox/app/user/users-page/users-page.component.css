@@ -1,0 +1,21 @@
+.contact {
+    padding: 1em 3em;
+}
+
+.contact .details > div {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.contact .details h3 {
+    margin-top: 0;
+}
+
+.contact .details label {
+    width: 8em;
+    flex: 0 1 auto;
+}
+
+.contact .details input {
+    flex: 1 1 auto;
+}

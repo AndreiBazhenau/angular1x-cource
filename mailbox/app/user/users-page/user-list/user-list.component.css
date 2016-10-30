@@ -1,0 +1,21 @@
+.selectlist-user {
+    margin: 0;
+    padding: 1.5em 0;
+    background-color: #DDD;
+}
+.selectlist-user a {
+    display: block;
+    color: black;
+    padding: 0.15em 1.5em;
+    text-decoration: none;
+    font-size: small;
+}
+.selectlist-user .selected {
+    background-color: cornflowerblue;
+}
+.selectlist-user .selected a {
+    color: white;
+}
+.selectlist-user i.fa {
+    width: 1.35em;
+}
