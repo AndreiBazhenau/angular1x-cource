@@ -1,17 +1,21 @@
-1. package.json
-2. bower
-3. gulp
-4. auth
-5. interceptors(errors + spinner) + ng-cloack
-6. save email
-7. save contact
-8. e2e protractor
-9. jasmine tests
-10. dialog
-11. validation framework + server side validation integration
-12. es6 + webpack
-13. articles
-14. docs + book
+1. auth + ui router event
+2. interceptors(errors + spinner) + ng-cloack
+3. save email
+4. save contact
+
+5. e2e protractor
+6. jasmine tests + karma
+
+7. dialog + couple of directives
+
+
+
+
+8. validation framework + server side validation integration
+9. es6 + webpack
+
+10. articles
+11. docs + book
 
 
 1. CORS

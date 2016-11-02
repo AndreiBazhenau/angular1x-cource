@@ -7,16 +7,6 @@
     font-weight: bold;
 }
 
-.messagelist thead td.st-sort-ascent:after {
-    content: " \f0de";
-    font-family: "FontAwesome";
-}
-
-.messagelist thead td.st-sort-descent:after {
-    content: " \f0dd";
-    font-family: "FontAwesome";
-}
-
 .messagelist table td {
     padding: 0.25em 0.75em;
     white-space: nowrap;
@@ -26,25 +16,5 @@
     cursor: default;
 }
 
-.messagelist i.fa-circle {
-    color: cornflowerblue;
-    font-size: 50%;
-}
-
-.messagelist table tr.active {
-    background-color: cornflowerblue;
-    color: white;
-}
-
-.messagelist table td:nth-child(1){ width: 1.75em; }
-.messagelist table td:nth-child(2){ width: 21%; }
-.messagelist table td:nth-child(3){ width: 62%; }
-.messagelist table td:nth-child(4){ width: 15%; }
-
-.messagelist thead tr:first-child {
-    /*position:absolute;*/
-}
-
-.messagelist tbody tr:first-child td{
-    /*padding-top:28px;*/
-}
+.messagelist table td:nth-child(1){ width: 30%; }
+.messagelist table td:nth-child(2){ width: 70%; }

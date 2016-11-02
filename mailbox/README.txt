@@ -1,2 +1,4 @@
+npm install --global gulp-cli
 npm i -g http-server
-http-server ./
+gulp dev
+http-server ./public
