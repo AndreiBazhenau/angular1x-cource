@@ -49,11 +49,14 @@ lazyRequireTask('serve', './tasks/serve', {
     src: 'public'
 });
 
-gulp.task('dev',
-    gulp.series('build', gulp.parallel('watch', 'serve'))
-);
-
 lazyRequireTask('lint', './tasks/lint', {
     cacheFilePath: process.cwd() + '/tmp/lintCache.json',
     src: 'app/**/*.js'
 });
+
+gulp.task('dev',
+    gulp.series('build', gulp.parallel('watch', 'serve'))
+);
+
+// TODO : run protractor tests
+// TODO : run unit tests

@@ -12,7 +12,7 @@ module.exports = function(options) {
         return combine(
             gulp.src(options.src),
             $.if(isDevelopment, $.sourcemaps.init()),
-            $.if(isDevelopment, $.concat('app.js')),
+            $.concat('app.js'),
             $.if(isDevelopment, $.sourcemaps.write()),
             $.if(!isDevelopment, $.uglify()),
             gulp.dest('public')
