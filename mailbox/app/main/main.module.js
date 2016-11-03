@@ -1,3 +1,3 @@
-angular.module('main.module', ['ui.router']);
+angular.module('main.module', ['shared.module', 'ui.router']);
 
 

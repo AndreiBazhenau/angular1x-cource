@@ -15,7 +15,7 @@
     <button class="btn btn-primary" ng-click="$ctrl.save()">
         <i class="fa fa-save"></i><span>Save</span>
     </button>
-    <button class="btn btn-primary" ng-click="$ctrl.delete()">
+    <button class="btn btn-primary" ng-click="$ctrl.delete()" ng-show="$ctrl.user.id">
         <i class="fa fa-remove"></i><span>Delete</span>
     </button>
 </div>

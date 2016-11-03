@@ -25,12 +25,18 @@ lazyRequireTask('htmls', './tasks/htmls', {
 });
 
 lazyRequireTask('jss', './tasks/jss', {
-    src: ['app/**/*.module.js', 'app/**/*.js', '!app/app.js', '!app/**/*.spec.js', 'app/app.js']
+    src: [
+        'app/**/shared.module.js',
+        'app/**/*.module.js',
+        'app/**/*.js',
+        '!app/app.js',
+        '!app/**/*.spec.js',
+        'app/app.js']
 });
 
 lazyRequireTask('assets', './tasks/assets', {
     src: 'app/assets/**',
-    dst: 'public'
+    dst: 'public/assets'
 });
 
 gulp.task('build', gulp.series(

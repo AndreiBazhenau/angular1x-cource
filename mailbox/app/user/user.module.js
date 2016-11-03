@@ -1,4 +1,4 @@
-angular.module('user.module', ['ui.router', 'restangular']);
+angular.module('user.module', ['shared.module', 'ui.router', 'restangular']);
 
 angular.module('user.module').config(['RestangularProvider', '$stateProvider', function(RestangularProvider, $stateProvider) {
     RestangularProvider.setBaseUrl('http://test-api.javascript.ru/v1/abazhenau');

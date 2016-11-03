@@ -21,8 +21,9 @@ angular.module('user.module').component('userItemEdit',  {
         };
 
         this.save = function() {
-            // TODO : save user
-            $state.go('users', {userId: userId});
+            UserService.save(this.user).then(function(user) {
+                $state.go('users.user-detailed', {userId: user._id }, {reload: true});
+            });
         };
 
         if (this.userId) {

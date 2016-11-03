@@ -1,27 +1,30 @@
 1. auth + ui router event
-2. interceptors(errors + spinner) + ng-cloack
-3. save email
-4. save contact
 
-5. e2e protractor
-6. jasmine tests + karma
+2. e2e protractor
+3. sort, date filter, select, email, simple validation
+4. jasmine tests + karma
 
-7. dialog + couple of directives
+5. ask dialog + couple directives
 
 
 
 
-8. validation framework + server side validation integration
-9. es6 + webpack
 
-10. articles
-11. docs + book
+6. validation framework + server side validation integration
+7. es6 + webpack
+
+8. articles
+9. docs + book
 
 
+
+
+
+
+Questions:
 1. CORS
-2. resource + Restangular interceptors
-3. resolve vs controller
-4. server-side validation errors
-5. store state - local storage or cookies
-6. ng-messsage
-7. validation framework directives
+2. resolve vs controller
+3. server-side validation errors
+4. store state - local storage or cookies
+5. ng-messsage
+6. validation framework directives

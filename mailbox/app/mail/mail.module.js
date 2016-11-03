@@ -1,4 +1,4 @@
-angular.module('mail.module', ['ui.router', 'ngResource']);
+angular.module('mail.module', ['shared.module', 'ui.router', 'ngResource']);
 
 angular.module('mail.module').config(['$stateProvider', function($stateProvider) {
 

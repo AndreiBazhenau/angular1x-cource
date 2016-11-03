@@ -1,6 +1,6 @@
 angular.module('mail.module').component('mailCreatePage', {
     templateUrl: 'mail/mail-create-page/mail-create-page.component.html' ,
-    controller: ['LetterService', '$state', function(LetterService, $state) {
+    controller: ['MailboxService', 'LetterService', '$state', function(MailboxService, LetterService, $state) {
         var ctx = this;
 
         this.cancel = function() {
@@ -8,11 +8,34 @@ angular.module('mail.module').component('mailCreatePage', {
         };
 
         this.save = function() {
-            // TODO : implement me
+            saveMessageToMailbox('draft', this.message);
         };
 
         this.send = function () {
-            // TODO : implement me
+            saveMessageToMailbox('outbox', this.message);
+        };
+        
+        function saveMessageToMailbox(mailboxTitle, message) {
+            getMailboxByTitle(mailboxTitle).then(function(mailbox) {
+                message.mailbox = mailbox._id;
+                LetterService.save(message, function() {
+                    $state.go('mailboxes');
+                });
+            });
+        }
+        
+        function getMailboxByTitle(title) {
+            var deferred = $q.defer();
+            
+            MailboxService.query().then(function(mailboxes) {
+                var mailbox = mailboxes.filter(function(mailbox) {
+                    return mailbox.title === title;
+                });
+
+                deferred.resolve(mailbox);
+            });
+
+            return deferred.promise;
         }
     }]
 });
