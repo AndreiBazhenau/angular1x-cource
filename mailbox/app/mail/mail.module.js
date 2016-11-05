@@ -1,15 +1,21 @@
-angular.module('mail.module', ['shared.module', 'ui.router', 'ngResource']);
+angular.module('mail.module', ['app.config', 'shared.module', 'ui.router', 'ngResource']);
 
 angular.module('mail.module').config(['$stateProvider', function($stateProvider) {
 
     $stateProvider.state('mailboxes', {
         url: '/mailboxes',
-        template: '<mails-page></mails-page>'
+        template: '<mails-page></mails-page>',
+        data: {
+            needAuth: true
+        }
     });
 
     $stateProvider.state('mail-create', {
         url: '/mail-create',
-        template: '<mail-create-page></mail-create-page>'
+        template: '<mail-create-page></mail-create-page>',
+        data: {
+            needAuth: true
+        }
     });
 
     $stateProvider.state('mailboxes.mail-table', {
@@ -17,7 +23,10 @@ angular.module('mail.module').config(['$stateProvider', function($stateProvider)
         template: '<mail-table mailbox-id="mailboxId"></mail-table>',
         controller: ['$scope', '$stateParams', function($scope, $stateParams) {
             $scope.mailboxId = $stateParams.mailboxId;
-        }]
+        }],
+        data: {
+            needAuth: true
+        }
     });
 
     $stateProvider.state('mailboxes.mail-item-detailed', {
@@ -26,7 +35,10 @@ angular.module('mail.module').config(['$stateProvider', function($stateProvider)
         controller: ['$scope', '$stateParams', function($scope, $stateParams) {
             $scope.mailboxId = $stateParams.mailboxId;
             $scope.letterId = $stateParams.letterId;
-        }]
+        }],
+        data: {
+            needAuth: true
+        }
     });
 }]);
 

@@ -1,0 +1,11 @@
+{
+    "development": {
+      "REST_URL": "http://test-api.javascript.ru/v1/abazhenau"
+    },
+    "test": {
+      "REST_URL": "http://test-api.javascript.ru/v1/abazhenau_test"
+    },
+    "production": {
+      "REST_URL": "http://test-api.javascript.ru/v1/abazhenau_prod"
+    }
+}

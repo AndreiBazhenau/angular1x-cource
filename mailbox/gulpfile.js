@@ -26,6 +26,7 @@ lazyRequireTask('htmls', './tasks/htmls', {
 
 lazyRequireTask('jss', './tasks/jss', {
     src: [
+        'tmp/app-config.js',
         'app/**/shared.module.js',
         'app/**/*.module.js',
         'app/**/*.js',
@@ -39,8 +40,14 @@ lazyRequireTask('assets', './tasks/assets', {
     dst: 'public/assets'
 });
 
+lazyRequireTask('config', './tasks/config', {
+    src: 'app/config/app-config.json',
+    dst: 'tmp'
+});
+
 gulp.task('build', gulp.series(
     'clean',
+    'config',
     gulp.parallel('styles', 'assets', 'htmls', 'jss'))
 );
 
