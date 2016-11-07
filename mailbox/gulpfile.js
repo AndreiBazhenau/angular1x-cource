@@ -31,7 +31,9 @@ lazyRequireTask('jss', './tasks/jss', {
         'app/**/*.module.js',
         'app/**/*.js',
         '!app/app.js',
-        '!app/**/*.spec.js',
+        '!app/**/*.unit.spec.js',
+        '!app/**/*.e2e.spec.js',
+        '!app/**/*.e2e.pageobject.js',
         'app/app.js']
 });
 

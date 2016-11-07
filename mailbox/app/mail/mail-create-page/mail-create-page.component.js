@@ -1,10 +1,12 @@
 angular.module('mail.module').component('mailCreatePage', {
     templateUrl: 'mail/mail-create-page/mail-create-page.component.html' ,
-    controller: ['MailboxService', 'LetterService', '$state', function(MailboxService, LetterService, $state) {
+    controller: ['MailboxService', 'LetterService', 'StateService', '$state', '$q',
+        function(MailboxService, LetterService, StateService, $state, $q) {
         var ctx = this;
 
         this.cancel = function() {
-            // TODO : implement me
+            var previousState = StateService.getPreviousState();
+            $state.go(previousState.state, previousState.params);
         };
 
         this.save = function() {
@@ -19,7 +21,8 @@ angular.module('mail.module').component('mailCreatePage', {
             getMailboxByTitle(mailboxTitle).then(function(mailbox) {
                 message.mailbox = mailbox._id;
                 LetterService.save(message, function() {
-                    $state.go('mailboxes');
+                    var previousState = StateService.getPreviousState();
+                    $state.go(previousState.state, previousState.params);
                 });
             });
         }
@@ -27,12 +30,12 @@ angular.module('mail.module').component('mailCreatePage', {
         function getMailboxByTitle(title) {
             var deferred = $q.defer();
             
-            MailboxService.query().then(function(mailboxes) {
+            MailboxService.query(function(mailboxes) {
                 var mailbox = mailboxes.filter(function(mailbox) {
                     return mailbox.title === title;
                 });
 
-                deferred.resolve(mailbox);
+                deferred.resolve(mailbox[0]);
             });
 
             return deferred.promise;

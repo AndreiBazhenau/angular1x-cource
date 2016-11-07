@@ -5,10 +5,19 @@ angular.module('login.module').component('loginPage', {
         this.showError = false;
 
         this.login = function() {
-            var isAuthenticated = AuthService.authenticate(this.credentials.username, this.credentials.password);
-            if (isAuthenticated) {
-                var previousState = StateService.getLoginRedirectState();
-                $state.go(previousState.state, previousState.params, { reload: true });
+            if (this.credentials) {
+                AuthService.authenticate(this.credentials.username, this.credentials.password).then(function(isAuthenticated) {
+                    if (isAuthenticated) {
+                        var previousState = StateService.getLoginRedirectState();
+                        if (previousState) {
+                            $state.go(previousState.state, previousState.params, {reload: true});
+                        } else {
+                            $state.go('home');
+                        }
+                    } else {
+                        ctx.errorMessage = true;
+                    }
+                });
             } else {
                 this.errorMessage = true;
             }

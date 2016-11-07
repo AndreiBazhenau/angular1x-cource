@@ -14,11 +14,11 @@
             <input class="form-control" type="password" name="password" id="password" ng-model="$ctrl.credentials.password">
         </div>
 
-        <div ng-show="$ctrl.errorMessage" class="well error">Invalid username or password</div>
+        <div ng-show="$ctrl.errorMessage" class="well error" id="errorMessage">Invalid username or password</div>
 
         <hr>
         <div>
-            <button class="btn btn-primary" type="button" ng-disabled="$ctrl.authenticating" ng-click="$ctrl.login()">
+            <button class="btn btn-primary login" type="button" ng-disabled="$ctrl.authenticating" ng-click="$ctrl.login()">
                 <i class="fa fa-spin fa-spinner" ng-show="$ctrl.authenticating"></i> <span>Log in</span>
             </button>
         </div>

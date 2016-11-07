@@ -1,26 +1,7 @@
-1. e2e protractor
-2. sort, date filter, select, email, simple validation
-3. jasmine tests + karma
-
-4. ask dialog + couple directives
+1. sort, date filter, select, email, simple validation
+2. ask dialog + couple directives
 
 // TODO : e2e tests
-1. gulp
-2. fixtures
-
-1. login
-2. logout
-
-1. home page
-
-1. list of mailboxes
-2. change mailbox
-3. list of mails in mailbox
-4. go to mail
-5. delete mail
-6. go back mail
-7. new mail
-
 1. users list
 2. select user
 3. delete user
@@ -31,12 +12,8 @@
 
 
 // TODO : jasmine
-1. gulp
-
 1. couple of components
 2. couple of services
-
-// TODO : instanbul
 
 
 5. validation framework + server side validation integration
@@ -44,9 +21,6 @@
 
 7. articles
 8. docs + book
-
-
-
 
 
 

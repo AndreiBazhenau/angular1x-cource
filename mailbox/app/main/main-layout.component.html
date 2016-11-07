@@ -9,8 +9,8 @@
             </li>
 
             <li class="navbar-right">
-                <button class="btn btn-primary fa fa-home" ui-sref="home"></button>
-                <button style="margin-right: 15px;" class="btn btn-primary" ui-sref="mail-create()">
+                <button class="btn btn-primary fa fa-home" id="home" ui-sref="home"></button>
+                <button style="margin-right: 15px;" class="btn btn-primary" id="newmessage" ui-sref="mail-create()">
                     <i class="fa fa-envelope"></i> New Message
                 </button>
             </li>
@@ -19,7 +19,7 @@
                 <div class="ng-binding">
                     {{$ctrl.getAuthenticatedUser()}} <i class="fa fa-chevron-down"></i>
                     <div class="hoverdrop">
-                        <button class="btn btn-primary" ng-click="$ctrl.logout()" >Log Out</button>
+                        <button class="btn btn-primary logout" id="logout" ng-click="$ctrl.logout()" >Log Out</button>
                     </div>
                 </div>
             </li>
