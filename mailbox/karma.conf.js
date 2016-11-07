@@ -3,19 +3,23 @@ module.exports = function(config) {
         basePath: '',
         frameworks: ['jasmine'],
         files: [
-            'node_modules/angular/angular.js',
-            'node_modules/angular-mocks/angular-mocks.js',
+            'bower_components/angular/angular.js',
+            'bower_components/angular-resource/angular-resource.js',
+            'bower_components/angular-ui-router/release/angular-ui-router.js',
+            'bower_components/angular-mocks/angular-mocks.js',
+            'bower_components/restangular/src/restangular.js',
+            'bower_components/underscore/underscore.js',
+            'test/app-config.js',
             'app/**/*.module.js',
             'app/**/*.js',
-            'app/**/*.html'
-        ],
-        files: [
+            'app/**/*.html',
             'app/**/*.unit.spec.js'
         ],
         exclude: [
+            'app/**/*.e2e.spec.js'
         ],
         preprocessors: {
-            'app/**/*.html': ['ng-html2js'],
+            'app/**/*.html': ['ng-html2js']
         },
         ngHtml2JsPreprocessor: {
             stripPrefix: 'app/',
@@ -26,9 +30,9 @@ module.exports = function(config) {
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
-        autoWatch: true,
+        autoWatch: false,
         browsers: ['Chrome'],
-        singleRun: false,
+        singleRun: true,
         concurrency: Infinity
     })
 };

@@ -11,11 +11,6 @@
 7. cancel create user
 
 
-// TODO : jasmine
-1. couple of components
-2. couple of services
-
-
 5. validation framework + server side validation integration
 6. es6 + webpack
 
@@ -29,3 +24,6 @@ Questions:
 2. resolve vs controller
 3. store state - local storage or cookies
 4. ng-messsage
+5. service vs resource
+6. protractor fixtures
+7. karma conf parameters
